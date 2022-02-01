@@ -1,0 +1,9 @@
+version: 1.4
+
+jobs:
+  HourlyBackup:
+    cmd: /home/jobberuser/rsync.sh > /proc/1/fd/1
+    time: '0 0 */1 * * *'
+    onError: Stop
+    notifyOnFailure:
+      - type: stdout
